@@ -7,6 +7,7 @@
     <a href="" class="btn btn-success">
         Je veux être admin siouplé
     </a>
+    {% if app.user %}<a href="{{ path('type_index') }}">Voir les types !</a>{% endif %}
     {# {% else %}
     <p>Bienvenue admin !</p>
     {% endif %} #}
