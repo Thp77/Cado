@@ -1,0 +1,32 @@
+.back{
+
+background-color: rgb(233, 130, 90);
+height: auto;
+width: 500px;
+opacity: 80%;
+border-radius: 50px 0 50px 0;
+
+}
+
+.btn-primary{
+
+    background-color: rgb(57, 170, 235)!important;
+    border: whitesmoke!important;
+}
+.btn-primary:hover{
+
+    background-color: rgb(35, 221, 91)!important;
+    border: whitesmoke!important;
+}
+
+.log{
+
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 25px;
+}
+
+.log:hover{
+
+    color: rgb(59, 59, 59);
+}

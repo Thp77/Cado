@@ -4,21 +4,34 @@
 
 {% block content %}
     {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        <div class="alert alert-danger " role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Inscription</h1>
 
-    {{ form(registrationForm) }}
+<h1   class=" d-flex justify-content-center ">Inscription</h1>
+
+
+<div class="container back  d-flex justify-content-center ">
+<div class="row">
+<div class="col">
+
+   <p> {{ form(registrationForm) }} </p>
+       <a href="{{ path('app_login') }}" class="d-flex log justify-content-center">Vous déjà un compte</a>
+
+
+</div>
+</div>
 
     {# {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.agreeTerms) }} #}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }} #}
-    <a href="{{ path('app_login') }}">Vous déjà un compte</a>
+        {# <button type="submit" class="btn btn-success mb-2">Register</button> #}
+    {# {{ form_end(registrationForm) }} #}
+</div>
+
+
 {% endblock %}

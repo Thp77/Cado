@@ -5,18 +5,23 @@
         <title>{% block title %}Chef à domicile{% endblock %}</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         {% block css %}{% endblock %}
     </head>
     <body>
         <!-- Mise en place de la barre de navigation du site -->
         <header>
+
+        {# Logo Cado  #}
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="{{ path('home') }}">CADO</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                    <div class="collapse navbar-collapse " id="navbarNav">
+
+                    {#  Nav barre  #}
+                    <div class="collapse navbar-collapse  d-flex justify-content-end " id="navbarNav">
                         <ul class="navbar-nav me-2">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Accueil</a>
@@ -38,7 +43,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 {% if app.user %}
-                                <a class="nav-link" href="{{ path('app_logout') }}" data-bs-toggle="modal" data-bs-target="#logoutModal">Se déconnecter</a>
+                                <a class="nav-link " href="{{ path('app_logout') }}" data-bs-toggle="modal" data-bs-target="#logoutModal">Se déconnecter</a>
                                 {% else %}
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     S'identifier
@@ -66,15 +71,15 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="logoutModalLabel">Déconnexion</h5>
+                            <h5 class="modal-title"  id="logoutModalLabel">Déconnexion</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <p>Êtes-vous sûr de vouloir vous déconnecter ?</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                            <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-primary">Déconnexion</button></a>
+                            <button type="button"  class="btn btn-warning" data-bs-dismiss="modal">Annuler</button>
+                            <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-success">Déconnexion</button></a>
                         </div>
                     </div>
                 </div>
