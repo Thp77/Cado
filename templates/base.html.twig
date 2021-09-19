@@ -8,6 +8,7 @@
         {% block css %}{% endblock %}
     </head>
     <body>
+        <!-- Mise en place de la barre de navigation du site -->
         <header>
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <div class="container-fluid">
@@ -37,7 +38,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 {% if app.user %}
-                                <a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+                                <a class="nav-link" href="{{ path('app_logout') }}" data-bs-toggle="modal" data-bs-target="#logoutModal">Se déconnecter</a>
                                 {% else %}
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     S'identifier
@@ -59,10 +60,26 @@
                     </div>
                 </div>
             </nav>
-            {# <ul class="container list-group list-group-horizontal mr-auto">
+
+            <!-- Mise en place d'un modal de confirmation de déconnexion -->
+            <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="logoutModalLabel">Déconnexion</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Êtes-vous sûr de vouloir vous déconnecter ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                            <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-primary">Déconnexion</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
     
-                <li class="list-group-item">{% if app.user %}<a href="{{ path('app_logout') }}">Logout</a>{% else %}<a href="{{ path('app_login') }}">Login</a>{% endif %}</li>
-            </ul> #}
         {% block content %}{% endblock %}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
