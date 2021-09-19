@@ -3,13 +3,7 @@
 {% block title %}Bienvenue{% endblock %}
 
 {% block content %}
-    {# {% if ((not is_granted('ROLE_CONSO')) OR (not is_granted('ROLE_CHIEF'))) %} #}
-    <a href="" class="btn btn-success">
-        Je veux être admin siouplé
-    </a>
-    {% if app.user %}<a href="{{ path('type_index') }}">Voir les types !</a>{% endif %}
-    {# {% else %}
-    <p>Bienvenue admin !</p>
-    {% endif %} #}
+    <h1>On n'est jamais aussi bien servi que chez soi !</h1>
+    <h2>On ne mange jamais aussi bien qu'à la maison !</h2>
 
 {% endblock %}

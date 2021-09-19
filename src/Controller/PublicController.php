@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class PublicController extends AbstractController
 {
@@ -13,4 +14,6 @@ class PublicController extends AbstractController
     {
         return $this->render('public/index.html.twig');
     }
+
+    
 }
