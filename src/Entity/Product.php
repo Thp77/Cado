@@ -49,9 +49,15 @@ class Product
      */
     private $chief;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Notation::class, mappedBy="product")
+     */
+    private $notations;
+
     public function __construct()
     {
         $this->menus = new ArrayCollection();
+        $this->notations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -142,6 +148,36 @@ class Product
     public function setChief(?User $chief): self
     {
         $this->chief = $chief;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Notation[]
+     */
+    public function getNotations(): Collection
+    {
+        return $this->notations;
+    }
+
+    public function addNotation(Notation $notation): self
+    {
+        if (!$this->notations->contains($notation)) {
+            $this->notations[] = $notation;
+            $notation->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNotation(Notation $notation): self
+    {
+        if ($this->notations->removeElement($notation)) {
+            // set the owning side to null (unless already changed)
+            if ($notation->getProduct() === $this) {
+                $notation->setProduct(null);
+            }
+        }
 
         return $this;
     }
