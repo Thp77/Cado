@@ -13,44 +13,48 @@
         <header>
 
         {# Logo Cado  #}
-            <nav class="navbar navbar-expand-lg navbar-light ">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="{{ path('home') }}">CADO</a>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid d-flex justify-content-">
+                    <a class="navbar-brand text-white" href="{{ path('home') }}"><svg id="lLogo" xmlns="http://www.w3.org/2000/svg" width="150" height="120" viewBox="0 0 220 198">
+  <text id="CA_DO" data-name="CADO" transform="translate(110 83)" fill="#fff" font-size="82" font-family="Impact" letter-spacing="0.057em"><tspan x="-45.859" y="0">CA</tspan><tspan x="-47.401" y="70">DO</tspan></text>
+  <text id="cuisinier_à_domicile" data-name="cuisinier à domicile" transform="translate(0 170)" fill="#fff" font-size="23" font-family="Impact" letter-spacing="0.068em"><tspan x="0.986" y="23">cuisiniers à domicile</tspan></text>
+</svg>
+</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
 
                     {#  Nav barre  #}
                     <div class="collapse navbar-collapse  d-flex justify-content-end " id="navbarNav">
-                        <ul class="navbar-nav me-2">
+                        <ul class="navbar-nav  ">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Accueil</a>
+                                <a class="nav-link active text-white fw-bold" aria-current="page" href="{{ path('home') }}">Accueil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Menus</a>
+                                <a class="nav-link text-white fw-bold" href="#">Menus</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Cuisiniers</a>
+                                <a class="nav-link text-white fw-bold" href="#">Cuisiniers</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">Réalisations</a>
+                                <a class="nav-link text-white fw-bold">Réalisations</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">Réservation</a>
+                                <a class="nav-link text-white fw-bold">Réservation</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">À propos</a>
+                                <a class="nav-link text-white fw-bold" href="{{ path('about') }}">À propos</a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown text-white fw-bold">
                                 {% if app.user %}
-                                <a class="nav-link " href="{{ path('app_logout') }}" data-bs-toggle="modal" data-bs-target="#logoutModal">Se déconnecter</a>
+                                <a class="nav-link text-white fw-bold " href="{{ path('app_logout') }}" data-bs-toggle="modal" data-bs-target="#logoutModal">Se déconnecter</a>
                                 {% else %}
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link text-white fw-bold dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     S'identifier
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="{{ path('app_register') }}">S'inscrire</a></li>
-                                    <li><a class="dropdown-item" href="{{ path('app_login') }}">Se connecter</a></li>
+                                <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item  " href="{{ path('app_register') }}">S'inscrire</a></li>
+                                    <li><a class="dropdown-item  " href="{{ path('app_login') }}">Se connecter</a></li>
                                 </ul>                                
                                 {% endif %}
                             </li>

@@ -22,57 +22,42 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', null, ['label' => 'Pseudonyme'] )
-            ->add('firstname', null, ['label' => 'Prénom'] )
-            ->add('name', null, ['label' => 'Nom'] )
+            ->add('username', null, ['label' => 'Pseudonyme'])
+            ->add('firstname', null, ['label' => 'Prénom'])
+            ->add('name', null, ['label' => 'Nom'])
             ->add('email', EmailType::class)
-            // ->add('plainPassword', PasswordType::class, [
-            //     // instead of being set onto the object directly,
-            //     // this is read and encoded in the controller
-            //     'mapped' => false,
-            //     'attr' => ['autocomplete' => 'new-password'],
-            //     'label' => 'Mot de passe',
-            //     'constraints' => [
-            //         new NotBlank([
-            //             'message' => 'Entrez un mot de passe',
-            //         ]),
-            //         new Length([
-            //             'min' => 6,
-            //             'minMessage' => 'Votre mot de passe doit comporter au moins {{ limit }} caractères',
-            //             // max length allowed by Symfony for security reasons
-            //             'max' => 255,
-            //         ]),
-            //     ],
-            // ])
-            ->add('plainPassword', RepeatedType::class, [
+        
+            ->add ('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'mapped' => false,
                 'invalid_message' => 'The password fields must match.',
                 'required' => true,
-                'first_options'  => ['label' => 'Mot de passe',
-                                    'constraints' => [
-                                    new NotBlank([
-                                        'message' => 'Entrez un mot de passe',
-                                    ]),
-                                    new Length([
-                                        'min' => 6,
-                                        'minMessage' => 'Votre mot de passe doit comporter au moins {{ limit }} caractères',
-                                        // max length allowed by Symfony for security reasons
-                                        'max' => 255,
-                                    ]),
-                                ]],
+                'first_options'  => [
+                    'label' => 'Mot de passe',
+                    'constraints' => [
+                        new NotBlank([
+                            'message' => 'Entrez un mot de passe',
+                        ]),
+                        new Length([
+                            'min' => 6,
+                            'minMessage' => 'Votre mot de passe doit comporter au moins {{ limit }} caractères',
+                            // max length allowed by Symfony for security reasons
+                            'max' => 255,
+                        ]),
+                    ]
+                ],
                 'second_options' => ['label' => 'Confirmez votre mot de passe'],
             ])
-            ->add('phone', null, ['label' => 'Téléphone'] )
+            ->add('phone', null, ['label' => 'Téléphone'])
             ->add('birthday', DateType::class, [
                 'label' => 'Date de naissance',
                 'widget' => 'single_text',
-                ])
-                ->add('file',FileType::class, [
-                    'mapped' => false,
-                    'label' => 'Photo de profil',
-                    'required' => false,
-                ])
+            ])
+            ->add('file', FileType::class, [
+                'mapped' => false,
+                'label' => 'Photo de profil',
+                'required' => false,
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'label' => 'Accepter les termes',
@@ -82,8 +67,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('submit', SubmitType::class, ['label' => 'Enregister'])
-        ;
+            ->add('submit', SubmitType::class, ['label' => 'Enregister']);
     }
 
     public function configureOptions(OptionsResolver $resolver)

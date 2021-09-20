@@ -7,31 +7,70 @@
         <div class="alert alert-danger " role="alert">{{ flashError }}</div>
     {% endfor %}
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="photo">
+    <h1   class=" d-flex justify-content-center ">Inscription</h1>
+<div class="container  d-flex justify-content-center text-center ">
 
-<h1   class=" d-flex justify-content-center ">Inscription</h1>
-
-
-<div class="container back  d-flex justify-content-center ">
-<div class="row">
-<div class="col">
-
-   <p> {{ form(registrationForm) }} </p>
-       <a href="{{ path('app_login') }}" class="d-flex log justify-content-center">Vous déjà un compte</a>
-
-
-</div>
-</div>
-
-    {# {{ form_start(registrationForm) }}
+<div class="row back  ">
+<div class="col-md-6">
+{# {{ form_start(registrationForm) }} #}
+        {{ form_row(registrationForm.username) }}
+        </div>
+        <div class="col-md-6">
+        {{ form_row(registrationForm.name) }}
+        </div>
+        <div class="col-md-6">
+        {{ form_row(registrationForm.firstname) }}
+        </div>
+        <div class="col-md-6">
         {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
+        </div>
+    <div class="col-md-6">
+    {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }} #}
-
-        {# <button type="submit" class="btn btn-success mb-2">Register</button> #}
-    {# {{ form_end(registrationForm) }} #}
+        </div>
+        <div class="col-md-6">
+ {{ form_row(registrationForm.phone) }} 
+ </div>
+ <div class="col-md-6">
+  {{ form_row(registrationForm.file) }} 
 </div>
+<div class="col-md-6">
+        {{ form_row(registrationForm.birthday) }} 
+
+</div>
+<div class="col-md-4 text-white">
+   {{ form_row(registrationForm.agreeTerms) }}
+<div class="col-md-12">
+       <a href="{{ path('app_login') }}" class="d-flex log  mb-2 justify-content-center">Vous déjà un compte</a>
+</div>
+
+</div>
+<div class="col-md-8">
+       <button type="submit" class="btn btn-success  m-2">Enregister</button>
+       </div>
+
+</div>
+
+
+
+
+
+     
+    {# {{ form_end(registrationForm) }} #}
+
+
+</body>
+</html>
 
 
 {% endblock %}

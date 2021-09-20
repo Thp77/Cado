@@ -15,5 +15,11 @@ class PublicController extends AbstractController
         return $this->render('public/index.html.twig');
     }
 
+    #[Route('/about', name: 'about')]
+    public function about(): Response
+    {
+        return $this->render('public/about.html.twig');
+    }
+
     
 }
